@@ -1,0 +1,5 @@
+O código TCC 2 e suas funções realizam a obtenção e separação dos Kernels da série de volterra.
+O código principal TCC2.m é formado pelas funções que:
+      -Geram um sinal senoidal que varia na frequência a partir dos parâmetros: Frequência Inicial, Frequência Final, Tempo de duração (em segundos) e Frequência de Amostragem;
+      -Aplicam um fade in e um fade out ao sinal, os parâmetros são: Sinal Senoidal, Número de samples para fade in, Número de samples para fade out, Tempo de duração do Sinal e Frequência de Amostragem;
+      -Load Sweep Inverso: Carrega o sinal senoidal invertido no tempo
