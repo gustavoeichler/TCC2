@@ -1,0 +1,20 @@
+\babel@toc {brazil}{}
+\contentsline {figure}{\numberline {1}{\ignorespaces (a): Line 6 Axsys 212. (b): Line 6 Pod \relax }}{21}{figure.caption.9}% 
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{21}{subfigure.1.1}% 
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{21}{subfigure.1.2}% 
+\contentsline {figure}{\numberline {2}{\ignorespaces Principais componentes de um amplificador de guitarra\relax }}{22}{figure.caption.10}% 
+\contentsline {figure}{\numberline {3}{\ignorespaces SansAmp GT2 .Fonte: Manual do Usu\IeC {\'a}rio do SansAmp GT2\relax }}{23}{figure.caption.11}% 
+\contentsline {figure}{\numberline {4}{\ignorespaces Amplificador Kemper Profiling Amp\relax }}{24}{figure.caption.13}% 
+\contentsline {figure}{\numberline {5}{\ignorespaces Fun\IeC {\c c}\IeC {\~a}o n\IeC {\~a}o linear proposta por Araya e Suyama\relax }}{27}{figure.caption.18}% 
+\contentsline {figure}{\numberline {6}{\ignorespaces Elementos b\IeC {\'a}sicos de um circuito e suas representa\IeC {\c c}\IeC {\~o}es em grandezas de onda. Autor \cite {fettweis1986wave}.\relax }}{29}{figure.caption.22}% 
+\contentsline {figure}{\numberline {7}{\ignorespaces Em cima: Frequ\IeC {\^e}ncia instant\IeC {\^a}nea $f_{i}$. Embaixo: \textit {swept signal} sincronizado. Autor: \cite {novak2010chebyshev}\relax }}{37}{figure.caption.35}% 
+\contentsline {figure}{\numberline {8}{\ignorespaces Diagrama de blocos do m\IeC {\'e}todo baseado em convolu\IeC {\c c}\IeC {\~a}o n\IeC {\~a}o linear. Autor: \cite {novakdissertation}\relax }}{38}{figure.caption.36}% 
+\contentsline {figure}{\numberline {9}{\ignorespaces Resposta ao impulso do sistema em an\IeC {\'a}lise. Autor: \cite {novakdissertation}\relax }}{39}{figure.caption.37}% 
+\contentsline {figure}{\numberline {10}{\ignorespaces M\IeC {\'o}dulo da resposta frequencial dos impulsos. Autor:\cite {novakdissertation}\relax }}{39}{figure.caption.38}% 
+\contentsline {figure}{\numberline {11}{\ignorespaces Amplificador Blackstar HT-5 C\relax }}{40}{figure.caption.39}% 
+\contentsline {figure}{\numberline {12}{\ignorespaces Diagrama de conex\IeC {\~a}o do sistema de caracteriza\IeC {\c c}\IeC {\~a}o\relax }}{41}{figure.caption.40}% 
+\contentsline {figure}{\numberline {13}{\ignorespaces Modelo de \textit {Hammerstein}. Retirado de: \cite {inproceedings}\relax }}{41}{figure.caption.41}% 
+\contentsline {figure}{\numberline {14}{\ignorespaces Fluxograma do programa desenvolvido\relax }}{42}{figure.caption.42}% 
+\contentsline {figure}{\numberline {15}{\ignorespaces Superior: Sinal senoidal de 1 kHz utilizado para testar os modelos. Inferior: Em azul est\IeC {\'a} o sinal distorcido pelo amplificador f\IeC {\'\i }sico, em laranja a sa\IeC {\'\i }da do modelo de \textit {Hammerstein}\relax }}{43}{figure.caption.43}% 
+\contentsline {figure}{\numberline {16}{\ignorespaces Resposta em frequ\IeC {\^e}ncia dos modelos\relax }}{44}{figure.caption.45}% 
+\contentsline {figure}{\numberline {17}{\ignorespaces n\IeC {\'u}cleos obtidos\relax }}{45}{figure.caption.46}% 

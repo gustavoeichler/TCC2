@@ -1,0 +1,147 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[Araya e Suyama 1996]{arayasuyama}
+\abntrefinfo{Araya e Suyama}{ARAYA; SUYAMA}{1996}
+{Araya e Suyama. \emph{Sound effector capable of imparting plural sound effects
+  like distortion and other effects}. 1996. 5570424.
+Dispon{\'\i}vel em: \url{https://patents.google.com/patent/US5570424A/en}.}
+
+\bibitem[Bedrosian e Rice 1971]{bedrosian1971output}
+\abntrefinfo{Bedrosian e Rice}{BEDROSIAN; RICE}{1971}
+{BEDROSIAN, E.; RICE, S.~O. The output properties of volterra systems
+  (nonlinear systems with memory) driven by harmonic and gaussian inputs.
+\emph{Proceedings of the IEEE}, IEEE, v.~59, n.~12, p. 1688--1707, 1971.}
+
+\bibitem[Bussey e Haigler 1981]{bussey1981tubes}
+\abntrefinfo{Bussey e Haigler}{BUSSEY; HAIGLER}{1981}
+{BUSSEY, W.; HAIGLER, R. Tubes versus transistors in electric guitar
+  amplifiers. In:  IEEE. \emph{Acoustics, Speech, and Signal Processing, IEEE
+  International Conference on ICASSP'81.} [S.l.], 1981. v.~6, p. 800--803.}
+
+\bibitem[Cheng et al. 2017]{cheng2017volterra}
+\abntrefinfo{Cheng et al.}{CHENG et al.}{2017}
+{CHENG, C. et al. Volterra-series-based nonlinear system modeling and its
+  engineering applications: A state-of-the-art review.
+\emph{Mechanical Systems and Signal Processing}, Elsevier, v.~87, p. 340--364,
+  2017.}
+
+\bibitem[Farina, Bellini e Armelloni 2001]{farina2001non}
+\abntrefinfo{Farina, Bellini e Armelloni}{FARINA; BELLINI; ARMELLONI}{2001}
+{FARINA, A.; BELLINI, A.; ARMELLONI, E. Non-linear convolution: A new approach
+  for the auralization of distorting systems.
+Citeseer, 2001.}
+
+\bibitem[Fettweis 1986]{fettweis1986wave}
+\abntrefinfo{Fettweis}{FETTWEIS}{1986}
+{FETTWEIS, A. Wave digital filters: Theory and practice.
+\emph{Proceedings of the IEEE}, IEEE, v.~74, n.~2, p. 270--327, 1986.}
+
+\bibitem[Gudupudi, Beaugeant e Evans 2014]{inproceedings}
+\abntrefinfo{Gudupudi, Beaugeant e Evans}{GUDUPUDI; BEAUGEANT; EVANS}{2014}
+{GUDUPUDI, L.; BEAUGEANT, C.; EVANS, N. Characterisation and modelling of
+  non-linear loudspeakers. In:  . [S.l.: s.n.], 2014. p. 134--138.}
+
+\bibitem[Haber e Keviczky 1999]{haber1999nonlinear}
+\abntrefinfo{Haber e Keviczky}{HABER; KEVICZKY}{1999}
+{HABER, R.; KEVICZKY, L. \emph{Nonlinear system identification. 1. Nonlinear
+  system parameter identification}. [S.l.]: Springer Science \& Business Media,
+  1999. v.~7.}
+
+\bibitem[He et al. 2013]{HeFei}
+\abntrefinfo{He et al.}{HE et al.}{2013}
+{HE, F. et al. Spectral analysis for nonstationary and nonlinear systems: A
+  discrete-time-model-based approach.
+\emph{IEEE Transactions on Biomedical Engineering}, v.~60, p. 2233--2241, 03
+  2013.}
+
+\bibitem[Jardin e Baudoin 2007]{LUTFilter}
+\abntrefinfo{Jardin e Baudoin}{JARDIN; BAUDOIN}{2007}
+{JARDIN, P.; BAUDOIN, G. Filter lookup table method for power amplifier
+  linearization.
+\emph{Vehicular Technology, IEEE Transactions on}, v.~56, p. 1076 -- 1087, 06
+  2007.}
+
+\bibitem[Jaromir 2012]{2012Macak}
+\abntrefinfo{Jaromir}{JAROMIR}{2012}
+{JAROMIR, M.
+\emph{Real time digital simulation of guitar amplifiers as audio effects}.
+Tese (Doutorado) --- Brno University of Technology, Brno, 2012.}
+
+\bibitem[Kemper 2014]{kemper2014musical}
+\abntrefinfo{Kemper}{KEMPER}{2014}
+{KEMPER, C. \emph{Musical instrument with acoustic transducer}. [S.l.]: Google
+  Patents, 2014.
+US Patent 8,796,530.}
+
+\bibitem[Lee e Schetzen 1965]{lee1965measurement}
+\abntrefinfo{Lee e Schetzen}{LEE; SCHETZEN}{1965}
+{LEE, Y.; SCHETZEN, M. Measurement of the wiener kernels of a non-linear system
+  by cross-correlation.
+Taylor \& Francis, 1965.}
+
+\bibitem[M{\"o}ller, Gromowski e Z{\"o}lzer 2002]{moller2002measurement}
+\abntrefinfo{M{\"o}ller, Gromowski e Z{\"o}lzer}{M{\"O}LLER; GROMOWSKI;
+  Z{\"O}LZER}{2002}
+{M{\"O}LLER, S.; GROMOWSKI, M.; Z{\"O}LZER, U. A measurement technique for
+  highly nonlinear transfer functions. In:  \emph{Proc. of the Int. Conf. on
+  Digital Audio Effects (DAFx-02)}. [S.l.: s.n.], 2002. p. 26--28.}
+
+\bibitem[Nov{\'a}k 2009]{novakdissertation}
+\abntrefinfo{Nov{\'a}k}{NOV{\'A}K}{2009}
+{NOV{\'A}K, A.
+\emph{Identification of nonlinear systems in acoustics}.
+Tese (Doutorado) --- Le Mans, 2009.}
+
+\bibitem[Novak et al. 2010]{novak2010nonlinear}
+\abntrefinfo{Novak et al.}{NOVAK et al.}{2010a}
+{NOVAK, A. et al. Nonlinear system identification using exponential swept-sine
+  signal.
+\emph{Instrumentation and Measurement, IEEE Transactions on}, IEEE, v.~59,
+  n.~8, p. 2220--2229, 2010.
+Dispon{\'\i}vel em: \url{https://doi.org/10.1109/TIM.2009.2031836}.}
+
+\bibitem[Novak et al. 2010]{novak2010chebyshev}
+\abntrefinfo{Novak et al.}{NOVAK et al.}{2010b}
+{NOVAK, A. et al. Chebyshev model and synchronized swept sine method in
+  nonlinear audio effect modeling. In:  \emph{Proc. 13th Int. Conference on
+  Digital Audio Effects (DAFx-10)}. [S.l.: s.n.], 2010.}
+
+\bibitem[Pakarinen e Yeh 2009]{pakarinen2009review}
+\abntrefinfo{Pakarinen e Yeh}{PAKARINEN; YEH}{2009}
+{PAKARINEN, J.; YEH, D.~T. A review of digital techniques for modeling
+  vacuum-tube guitar amplifiers.
+\emph{Computer Music Journal}, MIT Press, v.~33, n.~2, p. 85--100, 2009.}
+
+\bibitem[Schmitz e Embrechts 2017]{schmitz2017hammerstein}
+\abntrefinfo{Schmitz e Embrechts}{SCHMITZ; EMBRECHTS}{2017}
+{SCHMITZ, T.; EMBRECHTS, J.-J. Hammerstein kernels identification by means of a
+  sine sweep technique applied to nonlinear audio devices emulation.
+\emph{Journal of the Audio Engineering Society}, Audio Engineering Society,
+  v.~65, n.~9, p. 696--710, 2017.}
+
+\bibitem[Swain e Billings 2001]{Swain}
+\abntrefinfo{Swain e Billings}{SWAIN; BILLINGS}{2001}
+{SWAIN, A.; BILLINGS, S. Generalised frequency response function matrix for
+  mimo nonlinear systems.
+\emph{International Journal of Control - INT J CONTR}, v.~74, p. 829--844, 05
+  2001.}
+
+\bibitem[White et al. 2006]{paulwhite_line6_line6_line6_2006}
+\abntrefinfo{White et al.}{WHITE et al.}{2006}
+{WHITE, P. et al. \emph{Line 6: Inside the Tone Modelling Factory}. 2006.
+Dispon{\'\i}vel em:
+  \url{https://www.soundonsound.com/people/line-6-inside-tone-modelling-factory}.}
+
+\bibitem[Yeh, Abel e Smith 2010]{yeh2010automated1}
+\abntrefinfo{Yeh, Abel e Smith}{YEH; ABEL; SMITH}{2010}
+{YEH, D.~T.; ABEL, J.~S.; SMITH, J.~O. Automated physical modeling of nonlinear
+  audio circuits for real-time audio effects—part i: Theoretical development.
+\emph{IEEE transactions on audio, speech, and language processing}, IEEE,
+  v.~18, n.~4, p. 728--737, 2010.}
+
+\end{thebibliography}
