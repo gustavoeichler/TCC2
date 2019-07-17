@@ -1,10 +1,10 @@
 
 \chapter{Modelagem de sistemas não lineares}
 
-A modelagem de sistemas não lineares pode ser feita de diversas formas diferentes, cada uma com caracteristicas, vantagens e desvantagens que definem essas técnicas. Cada uma das técnicas será revisada a seguir, apresentando um panorama geral de como elas funcionam e como são aplicadas.
+A modelagem de sistemas não lineares pode ser feita de diversas formas, cada uma com vantagens e desvantagens próprias. As técnicas de modelagem não linear mais relevantes serão revisadas a seguir, apresentando um panorama geral de como elas funcionam e como são aplicadas.
 
 \section*{\textit{Static Wave Shaping}}
-É um dos métodos mais diretos de modelagem, consiste em aplicar um mapeamento da não linearidade do sistema, relacionando a variável de entrada, com uma variável de saída. Como este mapeamento não se altera com o tempo, considera-se que ele é estático, nomeando assim a técnica, do inglês, \textit{Static Wave Shaping} significa modelagem estática de ondas. A implementação dessa técnica se dá pela modelagem de equações que representam a não linearidade, como por exemplo:
+\textit{Static Wave Shaping} significa modelagem estática de ondas. Esta técnica é consiste em aplicar um mapeamento da não linearidade do sistema relacionando a variável de entrada com uma variável de saída. A implementação dessa técnica se dá pela modelagem de equações que representam a não linearidade, como por exemplo:
 \begin{equation}
 y = \frac{3x}{2} (1 - \frac{{x^2}}{3})
 \label{Equação1}
@@ -27,94 +27,37 @@ Estudos mais recentes realizados com \textit{Lookup Tables}
 aproximam as tabelas com modelos \textit{Hammerstein}, que consistem em uma não linearidade estática, seguida por um filtro linear\cite{LUTFilter}. Esses modelos de \textit{Hammerstein} serão abordados mais detalhadamente posteriormente.
 
 \section*{Análise nodal}
-Através das Leis de Kirchhoff é possível obter o comportamento dos circuitos eletrônicos, utilizando modelos acurados dos componentes que compõem os amplificadores obtém-se relações aproximadas entre as tensões e as correntes que circulam pelo circuito. Atravé de uma matriz e condutâncias, as tensões se relacionam com as correntes da seguinte forma:\cite{pakarinen2009review}
+Através das Leis de Kirchhoff é possível obter o comportamento dos circuitos eletrônicos, utilizando modelos acurados dos componentes que compõem os amplificadores é possível relações aproximadas entre as tensões e as correntes que circulam pelo circuito \cite{pakarinen2009review}. Através de uma matriz de condutâncias, as tensões se relacionam com as correntes da seguinte forma:
 \begin{equation}
-G\times v = c 
+Gv = \textit{c} 
 \label{Equação2}
 \end{equation}
 
-Onde G na equação \ref{Equação2} é a matriz de condutâncias. Cada tipo de componente do circuito (resistor, capacitor, indutor, indutância mútua de transformadores,diodos, transistores) contribui com uma linha da matriz G. As correntes nas fontes de voltagem dependem de equações auxiliares que são adicionadas em colunas e linhas do sistema descrito acima. Esse método é chamado também de \textit{K-Method}, referindo-se as leis de Kirchhoff.
-
-
-Para aplicar o \textit{K-method} aos circuitos elétricos, deve se escolher como as varáveis de estado \textbf{x}, as voltagens entre os capacitores e as correntes de indutores. As entradas \textbf{u}, representam as fontes de corrente e voltagem presentes no circuito. Dispositivos não lineares contribuem com correntes não lineares que são computadas por uma função vetorial \textbf{f} que mapeia as tensões controladas pelas correntes nos terminais dos dispositivos \cite{yeh2010automated1}. Então modifica-se a variável \textbf{i} em \ref{Equação2} por:
+Onde G na equação \ref{Equação2} é a matriz de condutâncias, \textit{v} é um vetor para cada voltagem no circuito e \textit{c} é o vetor que representa qualquer fonte de corrente em cada nó do circuito. Cada tipo de componente do circuito (resistor, capacitor, indutor, indutância mútua de transformadores,diodos, transistores) contribui com uma linha da matriz G. As correntes nas fontes de voltagem dependem de equações auxiliares que são adicionadas em colunas e linhas do sistema descrito acima. Esse método é chamado também de \textit{K-Method}, referindo-se as leis de Kirchhoff.
 \begin{equation}
-c =M_{1}x + M_{2}u + M_{3}i
+c=M_{1}x + M_{2}u + M_{3}i
 \label{Equação3}
 \end{equation}
-Então, substituindo a equação \ref{Equação3} em \ref{Equação2} tem-se:
+
+Para aplicar o \textit{K-method}, a variável C na equação \ref{Equação2} é descrita pela equação \ref{Equação3}, onde é necessário escolher como as varáveis de estado \textbf{x}, as voltagens entre os capacitores e as correntes de indutores. A variável \textbf{u}, representa as fontes de corrente e voltagem presentes na entrada do circuito. Dispositivos não lineares contribuem com correntes não lineares \textbf{i} que são computadas por uma função vetorial \textbf{f} que mapeia as tensões controladas pelas correntes nos terminais dos dispositivos \cite{yeh2010automated1}. Como as correntes não lineares são dependentes das voltagens nos terminais de cada dispositivo não linear, a variável \textbf{i} é escrita em função de \textbf{v}. Então é possível modificar a equação \ref{Equação2} por:
 
 \begin{equation}
-G\times v = M_{1}x + M_{2}u + M_{3}i(v) 
+Gv = M_{1}x + M_{2}u + M_{3}i(v) 
 \label{Equação4}
 \end{equation}
 
 Essa técnica de modelagem, no entanto, depende da quantidade de nós que compõem o circuito para estimar o gasto computacional. Circuitos de amplificadores valvulados tendem a ser complexos e assim compromete a aplicação dessa técnica em tempo real.
 
 \section*{\textit{Wave Digital Filters}}
-O princípio por trás de \textit{Wave Digital Filters} é a substituição das variáveis de Kirchhoff, tensão \textbf{v} e corrente \textbf{i}, por variáveis de onda, que são a incidência e a reflectância das ondas, denominadas por \textbf{A} e \textbf{B} e uma resistência de porta \textbf{R}, que não é relacionada a resistência física \cite{mavcak2012real}.
-A transormação entre as variáveis de onda e variáveis de Kirchhoff é dada por:
+\textit{Wave Digital Filters} são uma classe de filtros digitais onde é possível mapear seus parâmetros através das grandezas elétricas, como a tensão e a corrente. Cada elemento de um circuito elétrico possui uma representação em forma de filtro e através do uso de adaptadores é possível conectar diferentes filtros, como se fossem elementos de um circuito elétrico \cite{pakarinen2009review}. A construção de circuitos utilizando a técnica de \textit{Wave Digital Filters} se mostra eficiente e promissora para aplicações em tempo real, apesar de existirem algumas barreiras e topologias que não são mapeadas facilmente pela técnica.
 
+O princípio por trás de \textit{Wave Digital Filters} é a transformação das variáveis de \textit{Kirchhoff}, tensão \textbf{v} e corrente \textbf{i}, em parâmetros utilizados na criação dos filtros, chamados de variáveis de onda (reflectância e incidência) \cite{2012Macak}.
 
-\begin{equation}
-\mathbf{\left(\begin{array}{c}
-	A \\
-	B
-	\end{array}\right)}=\left(\begin{array}{cc}
-1+R\\1-R 
-\end{array}\right) \left(\begin{array}{c}
-v \\
-i
-\end{array}\right)
-\label{Equação5}
-\end{equation}
-
-
-A transformação inversa é dada por:
-
-\begin{equation}
-\mathbf{\left(\begin{array}{c}
-	v \\
-	i
-	\end{array}\right)}=\frac{1}{2}\left(\begin{array}{cc}
-1 & 1 \\
-\frac{1}{R} & -\frac{1}{R}
-\end{array}\right) \left(\begin{array}{c}
-A \\
-B
-\end{array}\right)
-\label{Equação6}
-\end{equation}
-
-Para a simulação de amplificadores com essa técnica é necessário a obtenção o esquemático dos amplificadores, assim é possível transformar cada componente do amplificador através das voltagens e correntes que atuam nesses componentes, pelos parâmetros de ondas A e B como mostra a figura \ref{fig:wavedigitalcomponents}\cite{mavcak2012real}. Uma vez que todos os componentes foram transformados para as variáveis de incidência e reflectância é possível usar componentes de conectividade, mostrados na figura \ref{fig:wavedigitaladaptadores} \cite{pakarinen2009review}.
-
+A figura \ref{fig:componentesemwdf} resume as transformações para cada componente básico de um circuito.
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=1.0\linewidth]{figuras/Wavedigitalcomponents}
-	\caption{Componentes representados por variáveis de Onda. Autor: \cite{Hotz}}
-	\label{fig:wavedigitalcomponents}
-\end{figure}
-
-
-
-Apesar desta técnica ser eficiente quanto ao esforço computacional e ser um método promissor para a simulação em tempo real de circuitos, algumas barreiras ainda precisam ser superadas, como a criação de uma metodologia geral para modelar os \textit{loops} de feedback diferentes partes de um amplificador. Existem também algumas topologias que são difíceis de ser modeladas com os adaptadores entre as conexões de \textit{Wave Digital Filters} \cite{pakarinen2009review}.
-
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=1.0\linewidth]{figuras/Wavedigitaladaptadores}
-	\caption{Adaptadores para conexão entre componentes. Autor: \cite{Hotz}}
-	\label{fig:wavedigitaladaptadores}
-\end{figure}
-
-
-A transformação de componentes como resistores e capacitores é feita a partir da transformação bilinear e escolhendo a resistência de porta de tal forma que a reflexão instantânea seja evitada, ou seja, para que não exista dependência entre a onda refletida e a onda incidente \cite{Hotz}.
-
-
-No artigo publicado por \cite{fettweis1986wave} encontra-se toda a teoria e as transformações de todos os componentes e conexões para a emulação de circuitos utilizando \textit{Wave Digital Filters}
-
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=1\linewidth]{figuras/ComponentesemWDF}
-	\caption{Resumo da transformação de componentes para as variáveis de ondas. Autor:\cite{fettweis1986wave}}
+	\includegraphics[width=0.7\linewidth]{figuras/ComponentesemWDF}
+	\caption{Elementos básicos de um circuito e suas representações em grandezas de onda. Autor \cite{fettweis1986wave}.}
 	\label{fig:componentesemwdf}
 \end{figure}
 
@@ -122,7 +65,7 @@ No artigo publicado por \cite{fettweis1986wave} encontra-se toda a teoria e as t
 
 
 \section*{Séries de Volterra}{\label{Volterra}}
-É um método analítico que usa uma ferramenta matemática chamada séries de Volterra para emular um sistema não linear. Série de Volterra é uma convolução multidimensional com uma matriz de resposta de um sistema não linear. Enquanto a resposta ao impulso em sistemas lineares caracteriza por completo um sistema e permite prever uma resposta para uma determinada entrada, em sistemas não lineares, esse tipo de caracterização não consegue identificar as não linearidades, caracterizando assim somente a parte linear do sistema. As Séries de Volterra permitem caracterizar, através de funções especiais, chamadas de \textit{kernels}, a parte não linear do sistema. Os \kernels correspondem a resposta multidimensional ao impulso dos coeficientes não lineares do sistema. \cite{pakarinen2009review}
+É um método analítico que usa uma ferramenta matemática chamada séries de Volterra para modelar um sistema não linear. Série de Volterra é, por definição, uma convolução multidimensional da entrada do sistema com uma matriz de resposta não linear. Enquanto a resposta ao impulso em sistemas lineares caracteriza por completo um sistema e permite prever uma resposta para uma determinada entrada, em sistemas não lineares, esse tipo de caracterização não consegue identificar as não linearidades, caracterizando assim somente a parte linear do sistema. As Séries de Volterra permitem caracterizar, através de funções especiais, chamadas de \textit{kernels}, a parte não linear do sistema. Os \kernels correspondem a resposta multidimensional ao impulso dos coeficientes não lineares do sistema. \cite{pakarinen2009review}
 
 As séries de Volterra podem ser consideradas também como uma expansão em séries de Taylor com os coeficientes do polinômio substituídos por convoluções multidimensionais representando assim o efeito de memória de sistemas não lineares de acordo com a ordem de não linearidade \cite{pakarinen2009review}
 
@@ -131,7 +74,7 @@ As séries de Volterra podem ser consideradas também como uma expansão em sér
 \subsection*{Definição no domínio do tempo}
 Em sistemas lineares a convolução é representada por:
 \begin{equation}
-y(t) = \int_{-\infty}^{\infty} h(t-\tau)x(t)d\tau
+y(t) = \int_{-\infty}^{\infty} h(t-\tau)x(\tau)d\tau = h(t)*x(t)
 \label{Integral de convolução}
 \end{equation}
 Onde $x(t)$ é a entrada do sistema, $y(t)$ é a saída e $h(t)$ é a resposta ao impulso do sistema. Aplicando a transformada de Fourier tem-se que:
@@ -146,75 +89,39 @@ Assim, a resposta ao impulso $h(t)$ na equação \ref{Integral de convolução} 
 Para sistemas não lineares, se a energia contida no sinal $x(t)$ é limitada, significa que o sinal pode ser representado por Séries de Volterra.
 
 \begin{equation}
-y(t)=h_{0} + \sum_{n=1}^{N} \int_{a}^{b}\cdot\cdot\cdot\int_{a}^{b} h_{n}(\tau_{1},...,\tau_{n})\prod_{j=1}^{n}x(\tau - \tau_{j})d\tau_{j}
+y(t)=h_{0} + \sum_{n=1}^{N} \int_{a}^{b}\cdot\cdot\cdot\int_{a}^{b} h_{n}(\tau_{1},...,\tau_{n})\prod_{j=1}^{n}x(t - \tau_{j})d\tau_{j}
 \label{Equação de Volterra}
 \end{equation}
 
-Os coeficientes $h_{n}$ são os \textit{kernels}. É interessante notar que se todos os \textit{kernels}, exceto o de primeira ordem, forem iguais a zero, o sistema em análise é puramente linear.
+Os coeficientes $h_{n}$ são os \textit{kernels}. O termo $h_{0}$ é chamado de constante de ordem zero. É interessante notar que se todos os \textit{kernels}, exceto o de primeira ordem, forem iguais a zero, o sistema em análise é puramente linear.
 
 
 
 \subsection*{Definição no Domínio Discreto}
-Na maioria das vezes, utiliza-se computadores para realizar os cálculos das séries de Volterra devido a complexidade dos sistemas que rapidamente se tornam inviáveis de serem calculados analiticamente com o aumento da ordem do sistema. Para que o computador possa calcular as séries, assim como é feito com a transformada de Fourier, passa-se a trabalhar em tempo discreto ao invés de tempo contínuo. 
+Na maioria das vezes, utiliza-se computadores para realizar os cálculos das séries de Volterra. Devido a complexidade dos sistemas não lineares, facilmente os cálculos se tornam inviáveis de serem realizados analiticamente. Para que o computador possa realizar os cálculos é necessário uma representação discreta da série de Volterra
 
 As séries de Volterra em tempo discreto são definidas como:
 \begin{equation}
-y[n]= h_{0} + \sum_{m_{1}=0}^{M} h_{1}[m_{1}]x[n-m_{1}]+$$
-$$ +\sum_{m_{1}=0}^{M} \sum_{m_1}^{M}h_{2}[m_{1},m_{2}]x[n-m_{1}]x[n-m_{2}]+ \cdots$$
-$$+ \sum_{m_{1}}^{M} \cdots \sum_{m_{N}}^{M}h_{N}[m_{1},m_{2},\cdots,m_{N}]x[n-m_{1}]\cdots x[n-m_{N}]
+y[n] = h_{0} + \sum_{p=1}^{P}\sum_{\tau_{1} = a}^{b}\dots\sum_{\tau_{p}= a}^{b} h_{p}(\tau_{1},\dots,\tau_{p}) \prod_{j = 1}^{p} x(n - \tau_{j})
 \label{Equação 3.4}
 \end{equation}
 
 Essa equação é capaz de descrever sistemas não lineares com memória e sua implementação computacional se dá por um método bem simples e direto através de um algorítimo que represente os somatórios mostrados na equação \ref{Equação 3.4}.
 
-\subsection*{Fatoração dos \kernels }
-Apesar da implementação direta da equação \ref{Equação 3.4}, ainda é possível reduzir a dimensão de sistemas fatorando os \kernels da seguinte forma:
 
-\begin{equation}
-h_{i}(n_{1},n_{2},\cdots,n_{i}) = \prod_{i} h_{i}^{f}(n)
-\label{Equação 3.5}
-\end{equation}
-
-Dessa forma é possível reescrever a equação \ref{Equação 3.4}:
-
-\begin{equation}
-y[n] = \sum_{m==}^{M} h_{1}^{f}[m]x[n-m] +(\sum_{m=0}^{M}h_{1}^{f}x[n-m])^{2}+\cdots+(\sum_{m=0}^{M}h_{N}^{f}x[n-m])^{N} = $$
-$$ =\sum_{i}^{N}(\sum_{m=0}^{M}h_{1}^{f}x[n-m])^{i}
-\label{Equação 3.6}
-\end{equation}
-
-Dessa forma sistemas não lineares podem ser decompostos em três modelos gerais: o modelo de Wiener, o modelo de Hammerstein e o modelo Wiener-Hammerstein.
-
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=0.7\linewidth]{figuras/ModelosdeVolterra}
-	\caption{Diagramas de Blocos dos modelos de sistemas não lineares. Autor:\cite{mavcak2012real}}
-	\label{fig:modelosdevolterra}
-\end{figure}
-
-Essas decomposições permitem que o gasto computacional seja reduzido de tal forma a não comprometer a qualidade e resolução do sistema\cite{mavcak2012real}.
-
-O modelo de Hammerstein é dado por uma função não linear cascateado em sequência com um filtro linear e permite que seja implementado de acordo com a equação \ref{Equação 3.7}:
-
-\begin{equation}
-y[n] = \sum_{i}^{N}(\sum_{m=0}^{M}h_{i}^{f}x^{i}[n-m])
-\label{Equação 3.7}
-\end{equation}
-
-Na literatura, a equação \ref{Equação 3.7} é conhecida como a própria convolução não linear.
 \section*{Domínio da frequência}
 Para sistemas lineares, a resposta em frequência facilita bastante a análise e modelagem de sistemas. Infelizmente para os não lineares a resposta em frequência não ajuda na análise nem na modelagem. Para isso, desenvolveu-se, baseado em Séries de Volterra, alguns conceitos para se analisar sistemas não lineares no domínio da frequência. Conceitos como Função de Resposta em Frequência Generalizada, Função da Resposta em Frequência Não Linear da Saída entre outras que serão apresentadas a seguir:
-\subsubsection*{Função de Resposta em Frequência Generalizada [\textit{Generalized frequency response function (GFRF)}]}
-A \FRFG  é definida como a Transformada de Fourier multidimensional dos \kernels de Volterra e pode ser representada por:
+\subsubsection*{Função de Resposta em Frequência Generalizada }
+A \FRFG, também conhecida como \textit{Generalized frequency response function (GFRF)} em inglês, é definida como a Transformada de Fourier multidimensional dos \kernels de Volterra e pode ser representada por:
 
 \begin{equation}
-H_{n}(\omega_{1},...,\omega_{n}) = \int_{- \infty}^{\infty}\cdots \int_{- \infty}^{\infty}h_{n}(\tau_{1},\cdots,\tau_{n})e^{-j(\omega_{1}\tau_{1},\cdots,\omega_{n},\tau_{n})}d\tau_{1}\cdots d\tau_{n}
+H_{n}(\omega_{1},...,\omega_{n}) = \int_{- \infty}^{\infty}\cdots \int_{- \infty}^{\infty}h_{n}(\tau_{1},\cdots,\tau_{n})e^{-j(\omega_{1}\tau_{1}+\cdots+\omega_{n}\tau_{n})}d\tau_{1}\cdots d\tau_{n}
 \label{Equação 3.8}
 \end{equation}
 
 A transformada inversa pode ser feita como:
 \begin{equation}
-h_{n}(\tau_{1},...,\tau_{n}) = \dfrac{1}{(2\pi)^{n}}\int_{- \infty}^{\infty}\cdots \int_{- \infty}^{\infty}H_{n}(\omega_{1},\cdots,\omega_{n})e^{-j(\omega_{1}\tau_{1},\cdots,\omega_{n},\tau_{n})}d\omega_{1}\cdots d\omega_{n}
+h_{n}(\tau_{1},...,\tau_{n}) = \dfrac{1}{(2\pi)^{n}}\int_{- \infty}^{\infty}\cdots \int_{- \infty}^{\infty}H_{n}(\omega_{1},\cdots,\omega_{n})e^{j(\omega_{1}\tau_{1}+\cdots+\omega_{n}\tau_{n})}d\omega_{1}\cdots d\omega_{n}
 \label{Equação 3.9}
 \end{equation}
 
@@ -231,11 +138,11 @@ Y_{n}(\omega) = \dfrac{\frac{1}{\sqrt{n}}}{(2 \pi)^{n-1}}\int_{\omega_{1},\cdots
 \label{Equação 3.12}
 \end{equation}
 
-Para as equações \ref{Equação 3.12} e \ref{Equação 3.11}, $Y(\omega)$é todo o espectro da saída do sistema,$U(\omega)$ é o espectro da entrada do sistema, $Y_{n}(\omega)$ representa a n-ésima ordem da resposta em frequência da saída do sistema, $\sigma_{n\omega}$ representa todo o campo de integração satisfazendo a restrição $\omega_{1},\cdots,\omega_{n}=\omega$.
+Para as equações \ref{Equação 3.12} e \ref{Equação 3.11}, $Y(\omega)$é todo o espectro da saída do sistema, $U(\omega)$ é o espectro da entrada do sistema, $Y_{n}(\omega)$ representa a n-ésima ordem da resposta em frequência da saída do sistema, $\sigma_{n\omega}$ representa todo o campo de integração satisfazendo a restrição $\omega_{1},\cdots,\omega_{n}=\omega$.
 
-Em sistemas lineares, a função da resposta em frequência pode ser deduzida utilizando a transformada de La Place, através das equações diferenciais dinâmicas \cite{cheng2017volterra}. \cite{bedrosian1971output} propôs um método de análise dos harmônicos gerados por distorções em sistemas de comunicação, porém o método de análise proposto só é válido para sistemas de uma única entrada. Vários outros estudos buscaram extender as pesquisas de \cite{bedrosian1971output} para múltiplas entradas como as pesquisas de \cite{Swain} e \cite{HeFei}.
+Em sistemas lineares, a função da resposta em frequência pode ser deduzida utilizando a transformada de Laplace, através das equações diferenciais dinâmicas \cite{cheng2017volterra}. \cite{bedrosian1971output} propôs um método de análise dos harmônicos gerados por distorções em sistemas de comunicação, porém o método de análise proposto só é válido para sistemas de uma única entrada. Vários outros estudos buscaram extender as pesquisas de \cite{bedrosian1971output} para múltiplas entradas como as pesquisas de \cite{Swain} e \cite{HeFei}.
 
-\subsubsection*{Função da Resposta em Frequência não linear da Saida [\textit{Nonlinear output frequency response function (NOFRF)}]}
+\subsubsection*{Função da Resposta em Frequência não linear da Saida }
 Uma das principais características da \FRFG é que ela é multidimensional. A quantidade de dimensões presentes em um sistema torna a função muito mais complicada de se medir, mostrar e interpretar do que a resposta em frequência de um sistema linear. Para isso foi proposto uma função de uma dimensão na frequência que permite uma análise de sistemas não lineares de forma semelhante a sistemas lineares. A NOFRF (\textit{Nonlinear output frequency response function}) é definida como:
 
 \begin{equation}
@@ -318,9 +225,9 @@ Onde a barra indica a média sobre o tempo e $\sigma_{x}^{2}$ é variância da e
 
 
 \subsubsection*{Modelo de Hammerstein}
-O modelo de Hammerstein contém um subsistema não linear estático seguido por um subsistema dinâmico linear e pode ser modelado como:
+O modelo de \textit{Hammerstein} é constituído por um subsistema não linear estático seguido por um subsistema linear e pode ser modelado como:
 \begin{equation}
-\int_{- \infty}{\infty}h(\tau) x(t-\tau) d\tau
+y = \int_{- \infty}^{\infty}h(\tau) x(t-\tau) d\tau
 \label{Equação 4.23}
 \end{equation}
 \begin{equation}
@@ -337,7 +244,7 @@ $$ y(t) = \sum_{n=1}^{N} y_{n}(t)
 
 Onde,
 \begin{equation}
-y_{n}(t) =  \int_{-\infty}^{\infty} \cdots \int_{-\infty}^{\infty}a_{n}h(\tau_{1})\sigma(\tau_{1} - \tau_{2}) \cdots \sigma(\tau_{1} - \tau_{n})/[\Delta\tau]^{n-1} u(t-\tau_{n})\cdots u(t-\tau_{n})d\tau_{1}\cdots d\tau_{n}
+y_{n}(t) =  \int_{-\infty}^{\infty} \cdots \int_{-\infty}^{\infty}  (a_{n}h(\tau_{1})\sigma(\tau_{1} - \tau_{2}) \cdots \sigma(\tau_{1} - \tau_{n})/[\Delta\tau]^{n-1}) u(t-\tau_{n})\cdots u(t-\tau_{n})d\tau_{1}\cdots d\tau_{n}
 \label{Equação 4.26}
 \end{equation}
 
@@ -378,8 +285,39 @@ de acordo com a definição da série de Volterra, a saída do sistema segue a e
 
 Caso a série de potência do lado direito da equação \ref{Equação 4.29} seja convergente então a série de Volterra também será.
 
-\section*{A identificação dos \kernels de Volterra}
-Um dos principais problemas para a modelagem de sistemas é a identificação dos \kernels que caracterizam a série de Volterra.Considerando um sistema com uma memória de N amostras, um modelo simples e discreto de Volterra requer $N^{p}$ coeficientes para representar a p-ésima ordem da função dos \kernels. Então, para representar um sistema não linear, o modelo de Volterra depende de uma grande quantidade de coeficientes mesmo se somente uma pequena quantidade de \kernels forem incluídas.
+\section*{A identificação dos \kernels de Volterra} \label{ident}
+Um dos principais problemas para a modelagem de sistemas usando as séries de Volterra é a identificação dos \kernels que caracterizam a série. Para identificar os núcleos é necessário excitar o amplificador a ser modelado com um sinal que consiga saturar as válvulas de tal forma que ocorra a distorção do amplificador. Proposto por Farina em \cite{farina2001non}, a aplicação de um sinal senoidal exponencial que varre a frequência audível (\textit{Swept Sines}) em um amplificador é capaz de extrair os núcleos da série e assim, é possível separar a resposta a cada harmônico do amplificador \cite{schmitz2017hammerstein}. Algumas modificações foram propostas ao modelo de Farina, corrigindo a formulação do sinal e evitando uma divergência entre as fases dos sinais \cite{novakdissertation}.
 
-Schetzen em \cite{schetzen1974theory} desenvolveu uma variação das séries de Volterra que é ortogonal se e somente se o sinal de entrada no sistema for um ruído branco Gaussiano. Através de técnicas como a correlação cruzada, Schetzen identificou os \kernels de Wiener. O problema maior então fica por conta da geração de um ruído branco Gaussiano em sistemas experimentais.
-Muitas outras tentativas de identificação dos \kernels baseadas nas de Schetzen podem ser encontradas em \cite{cheng2017volterra}.
+\textit{Swept Sines} são sinais senoidais que com o passar do tempo variam a sua frequência instantânea, cobrindo uma faixa do espectro de frequências.
+São muito usados na área de comunicação em sonares e radares, mas também podem ser utilizado em sistemas de áudio para cobrir toda a frequência audível.
+
+Um sinal desse tipo que aumenta a sua frequência exponencialmente é definido como:
+\begin{equation}
+x(t) = sin (2\pi f_{1}L [exp(\dfrac{t}{L})])
+\label{sinal exponencial}
+\end{equation}
+
+Onde, a frequência instantânea é dada por:
+\begin{equation}
+f_{i}(t) = f_{1} exp(\dfrac{t}{L})
+\end{equation}
+
+o atraso de grupo $t_{f}$ é a função inversa da frequência instantânea $f_{i}$ e é dada por:
+\begin{equation}
+t_{f}(f) = L \ln(\dfrac{f_{i}}{f_{1}})
+\end{equation}
+
+A duração de tempo $T$ do sinal $x(t)$ pode ser expressa em função da frequência $f_{1}$ e da frequência $f_{2}$ que são, respectivamente, a frequência em que o sinal começa e a frequência em que o sinal termina\cite{novak2010nonlinear}.
+
+\begin{equation}
+T = L \ln(\dfrac{f_{2}}{f_{1}})
+\label{Equação 5.10}
+\end{equation}
+
+A imagem abaixo mostra como a frequência do sinal varia com o passar do tempo.
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.5\linewidth]{figuras/SSS}
+	\caption{Em cima: Frequência instantânea $f_{i}$. Embaixo: \textit{swept signal} sincronizado. Autor: \cite{novak2010chebyshev}}
+	\label{fig:sss}
+\end{figure}
